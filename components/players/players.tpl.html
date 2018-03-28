@@ -1,0 +1,114 @@
+<md-toolbar>
+		<div class="md-toolbar-tools">
+			<p><strong>Zipari</strong></p>
+		</div>
+	</md-toolbar>
+
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" 
+		md-component-id="left">
+		<md-toolbar>
+			<h1 class="md-toolbar-tools">Edit Player</h1>
+		</md-toolbar>
+
+		<md-content layout-padding>
+			<form>
+				<md-input-container>
+					<label for="title">Name</label>
+					<input type="text" id="name"
+							ng-model="vm.player.name"
+						md-autofocus>
+				</md-input-container>
+				<md-input-container>
+					<label for="price">College</label>
+					<input type="text" id="college" ng-model="vm.player.college">
+				</md-input-container>
+				<md-input-container>
+					<label for="description">Height</label>
+					<input type="text" id="height" ng-model="vm.player.height">
+					</input>
+				</md-input-container>
+				<md-input-container>
+					<label for="description">Weight</label>
+					<input type="text" id="weight" ng-model="vm.player.weight">
+					</input>
+				</md-input-container>
+				<br>
+				<!--md-button ng-if="!editing" ng-click="saveStar(star)" class="md-primary">
+					Save
+				</md-button-->
+				<md-button ng-click="vm.saveEdit()" class="md-primary">
+					Save Edit
+				</md-button>
+				<md-button ng-click="vm.closeSidebar()" class="md-warn">
+					Cancel
+				</md-button>
+			</form>
+		</md-content>
+
+	</md-sidenav>
+
+	<md-content class="md-padding" layout="row" layout-wrap>
+		<md-card ng-repeat="player in vm.players" flex="30" ng-hide="hideCard">
+	 	<!--md-card ng-repeat="star in stars | 
+					filter: starsFilter |
+					filter: category" flex="30"-->
+	<md-card-content>
+		<div class="star-info" ng-show="!showContact" ng-hide="showsaves">
+			<h2 class="md-title"><md-icon class="mdi mdi-account"></md-icon>{{ player.name }}</h2>
+			<h2 class="md-title"><md-icon class="mdi mdi-school"></md-icon>{{ player.college }}</h2>
+			<div layout="row">
+				<h2 class="md-subhead">Height: {{ player.height+'m'}}</h2>
+				<h2 class="md-subhead" style="margin-left: 20px;">Weight: {{ player.weight+'lb' }}</h2>
+			</div>
+		</div>
+
+		<div class="star-contact" ng-show="showContact">
+			<p class="md-title">Select a Team</p>
+			<md-input-container>
+          		<label>Teams</label>
+          		<md-select ng-model="team">
+            		<md-option ng-repeat="team in vm.teams" ng-value="team">
+             	 	{{team}}
+            		</md-option>
+          		</md-select>
+        </md-input-container>
+		</div>
+
+		<div layout="row">
+			<md-button class="md-primary"
+				ng-click="showContact = true"
+				ng-show="!showContact">Draft
+			</md-button>
+			<md-button class="md-warn"
+				ng-click="showContact = false"
+				ng-show="showContact">Cancel
+			</md-button>
+			<md-button class="md-primary"
+				ng-click="showsave = false; hideCard = true; vm.draftPlayer(player, team)"
+				ng-show="showContact">Save
+			</md-button>
+			<md-button ng-show="!showContact" ng-click="vm.editPlayer(player)" class="md-warn">Edit</md-button>
+		</div>
+
+	</md-card-content>
+</md-card>
+	</md-content>
+	
+		<!--a ui-sref="roster" ng-hide="vm.isDone()">Final Draft</a-->
+		<md-button class="md-raised md-primary" ng-hide="vm.isDone()" ng-click="vm.finalDraft()" style="
+		    width: 50%;
+    		height: 40%;
+    		font-size: -webkit-xxx-large;
+    		margin: 60px;
+    		background-color: brown">
+			Final Draft
+		</md-button>
+
+
+		<ui-view></ui-view>
+		
+		<div ng-hide="!showDraft">
+			<ul ng-repeat="infor in vm.draftTeam">
+				<li>{{infor}}</li>
+			</ul>
+		</div>

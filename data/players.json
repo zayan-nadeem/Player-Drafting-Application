@@ -1,0 +1,63 @@
+[
+    {
+      "name": "Markelle Fultz",
+      "college": "Washington University",
+      "height": "76",
+      "weight": "195"
+    },
+    {
+      "name": "Lonzo Ball",
+      "college": "UCLA",
+      "height": "78",
+      "weight": "190"
+    },
+    {
+      "name": "Jayson Tatum",
+      "college": "Duke University",
+      "height": "80",
+      "weight": "205"
+    },
+    {
+      "name": "Josh Jackson",
+      "college": "Kansas University",
+      "height": "76",
+      "weight": "207"
+    },
+    {
+      "name": "De'Aaron Fox",
+      "college": "University of Kentucky",
+      "height": "77",
+      "weight": "178"
+    },
+    {
+      "name": "Johnathon Isaac",
+      "college": "Florida State University",
+      "height": "82",
+      "weight": "210"
+    },
+    {
+      "name": "Lauri Markkanen",
+      "college": "University of Arizona",
+      "height": "84",
+      "weight": "230"
+    },
+    {
+      "name": "Frank Ntilikina",
+      "college": "SIG Strasbourg",
+      "height": "77",
+      "weight": "190"
+    },
+    {
+      "name": "Dennis Smith",
+      "college": "North Carolina State University",
+      "height": "74",
+      "weight": "195"
+    },
+    {
+      "name": "Zach Collins",
+      "college": "Gonzaga University",
+      "height": "84",
+      "weight": "230"
+    }
+  ]
+
